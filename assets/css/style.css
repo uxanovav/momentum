@@ -29,6 +29,11 @@ body {
     cursor: pointer;
 }
 
+#change-bg-button:hover {
+    background-color: rgb(226, 165, 84);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 h1 {
     font-weight: 300;
     opacity: 0.8;
@@ -38,7 +43,14 @@ h2 {
     opacity: 0.8;
 }
 
+.weather-description {
+    margin-bottom: 10px;
+}
+
 @media (max-width: 700px) {
+    body {
+        background-size: auto;
+    }
     .time {
         font-size: 6rem;
         text-align: center;

@@ -5,6 +5,10 @@ const userName = document.getElementById('name');
 const task = document.getElementById('task');
 const chbgButton = document.getElementById('change-bg-button');
 let bgCounter = '';
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const city = document.querySelector('.city');
 
 function showTime() {
     let date = new Date;
@@ -125,7 +129,7 @@ function changeBg() {
 
 
 
-chbgButton.addEventListener('click', function (e) {
+chbgButton.addEventListener('click', function(e) {
     console.log(bgCounter);
     if (bgCounter < 4) {
         bgCounter++;
@@ -159,6 +163,25 @@ function setTask(e) {
     }
 }
 
+function setCity(e) {
+    if (e.type === 'keypress') {
+        if (e.which === 13 || e.keyCode === 13) {
+            getWeather();
+            localStorage.setItem('city', e.target.innerText)
+            city.blur();
+        }
+    }
+}
+
+
+function getCity() {
+    if (localStorage.getItem('city') === null) {
+        city.textContent = '[Enter your city]';
+    } else {
+        city.textContent = localStorage.getItem('city');
+    }
+}
+
 function getName() {
     if (localStorage.getItem('name') === null) {
         userName.textContent = '[Enter your name]';
@@ -179,9 +202,24 @@ userName.addEventListener('keypress', setName);
 userName.addEventListener('blur', setName);
 task.addEventListener('keypress', setTask);
 task.addEventListener('blur', setTask);
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
+city.addEventListener('blur', setCity);
+
+async function getWeather() {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=en&appid=158ec464b7098aee233a474045e7a343&units=metric`;
+    const res = await fetch(url);
+    const data = await res.json();
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${data.main.temp}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+}
 
 
+getWeather()
 changeBgCounter();
 showTime();
 getName();
 getTask();
+getCity();
