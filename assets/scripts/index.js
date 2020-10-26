@@ -164,15 +164,16 @@ function setTask(e) {
 }
 
 function setCity(e) {
+    console.log(e.type);
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
-            getWeather();
             localStorage.setItem('city', e.target.innerText)
+            getWeather();
             city.blur();
-        } else {
-            getWeather();
-            localStorage.setItem('city', e.target.innerText)
         }
+    } else {
+        localStorage.setItem('city', e.target.innerText)
+        getWeather();
     }
 }
 
@@ -205,7 +206,6 @@ userName.addEventListener('keypress', setName);
 userName.addEventListener('blur', setName);
 task.addEventListener('keypress', setTask);
 task.addEventListener('blur', setTask);
-document.addEventListener('DOMContentLoaded', getWeather);
 city.addEventListener('keypress', setCity);
 city.addEventListener('blur', setCity);
 
@@ -220,9 +220,9 @@ async function getWeather() {
 }
 
 
-getWeather()
 changeBgCounter();
 showTime();
 getName();
 getTask();
 getCity();
+getWeather();
