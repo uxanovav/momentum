@@ -17,16 +17,19 @@
 body {
     background-size: cover;
     background-repeat: no-repeat;
+    transition: 1s ease-in;
+    color: rgb(252, 237, 217)
 }
 
 #change-bg-button {
     border-radius: 5px;
     background-color: burlywood;
-    color: black;
+    color: rgb(46, 44, 44);
     height: 15px;
     padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
+    transition: 0.5s linear;
 }
 
 #change-bg-button:hover {

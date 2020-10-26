@@ -111,25 +111,22 @@ function changeBgCounter() {
 function changeBg() {
     if (bgCounter === 1) {
         document.body.style.backgroundImage = "url('./assets/images/morning.jpg')";
-        document.body.style.color = "rgb(252, 237, 217)";
         greeting.textContent = "Good Morning ";
     } else if (bgCounter === 2) {
         document.body.style.backgroundImage = "url('./assets/images/noon.jpg')";
         greeting.textContent = "Good Afternoon ";
-        document.body.style.color = "rgb(252, 237, 217)";
     } else if (bgCounter === 3) {
         document.body.style.backgroundImage = "url('./assets/images/evening.jpg')";
         greeting.textContent = "Good Evening ";
     } else if (bgCounter === 4) {
         document.body.style.backgroundImage = "url('./assets/images/night.jpg')";
-        document.body.style.color = "white";
         greeting.textContent = "Good Night ";
     }
 }
 
 
 
-chbgButton.addEventListener('click', function(e) {
+chbgButton.addEventListener('click', function (e) {
     console.log(bgCounter);
     if (bgCounter < 4) {
         bgCounter++;
@@ -141,13 +138,25 @@ chbgButton.addEventListener('click', function(e) {
     }
 });
 
+
+localStorage.setItem('name', '[Enter your name]');
+localStorage.setItem('task', '[Enter your focus]');
+localStorage.setItem('city', 'Ulyanovsk');
+
+
 function setName(e) {
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
+            if (e.target.innerText === '') {
+                e.target.innerText = localStorage.getItem('name');
+            }
             localStorage.setItem('name', e.target.innerText);
             userName.blur();
         }
     } else {
+        if (e.target.innerText === '') {
+            e.target.innerText = localStorage.getItem('name');
+        }
         localStorage.setItem('name', e.target.innerText);
     }
 }
@@ -155,23 +164,34 @@ function setName(e) {
 function setTask(e) {
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
+            if (e.target.innerText === '') {
+                e.target.innerText = localStorage.getItem('task');
+            }
             localStorage.setItem('task', e.target.innerText);
             task.blur();
         }
     } else {
+        if (e.target.innerText === '') {
+            e.target.innerText = localStorage.getItem('task');
+        }
         localStorage.setItem('task', e.target.innerText);
     }
 }
 
 function setCity(e) {
-    console.log(e.type);
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
+            if (e.target.innerText === '') {
+                e.target.innerText = localStorage.getItem('city');
+            }
             localStorage.setItem('city', e.target.innerText)
             getWeather();
             city.blur();
         }
     } else {
+        if (e.target.innerText === '') {
+            e.target.innerText = localStorage.getItem('city');
+        }
         localStorage.setItem('city', e.target.innerText)
         getWeather();
     }
@@ -179,35 +199,33 @@ function setCity(e) {
 
 
 function getCity() {
-    if (localStorage.getItem('city') === null) {
-        city.textContent = '[Enter your city]';
-    } else {
-        city.textContent = localStorage.getItem('city');
-    }
+    city.textContent = localStorage.getItem('city');
 }
 
 function getName() {
-    if (localStorage.getItem('name') === null) {
-        userName.textContent = '[Enter your name]';
-    } else {
-        userName.textContent = localStorage.getItem('name');
-    }
+    userName.textContent = localStorage.getItem('name');
 }
 
+
 function getTask() {
-    if (localStorage.getItem('task') === null) {
-        task.textContent = '[Enter your task]';
-    } else {
-        task.textContent = localStorage.getItem('task');
-    }
+    task.textContent = localStorage.getItem('task');
 }
 
 userName.addEventListener('keypress', setName);
 userName.addEventListener('blur', setName);
+userName.addEventListener('click', function (ev) {
+    ev.target.innerText = ' ';
+})
 task.addEventListener('keypress', setTask);
 task.addEventListener('blur', setTask);
+task.addEventListener('click', function (ev) {
+    ev.target.innerText = ' ';
+})
 city.addEventListener('keypress', setCity);
 city.addEventListener('blur', setCity);
+city.addEventListener('click', function (ev) {
+    ev.target.innerText = ' ';
+})
 
 async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=en&appid=158ec464b7098aee233a474045e7a343&units=metric`;
