@@ -111,16 +111,16 @@ function changeBgCounter() {
 function changeBg() {
     if (bgCounter === 1) {
         document.body.style.backgroundImage = "url('./assets/images/morning.jpg')";
-        greeting.textContent = "Good Morning ";
+        greeting.textContent = "Good Morning,";
     } else if (bgCounter === 2) {
         document.body.style.backgroundImage = "url('./assets/images/noon.jpg')";
-        greeting.textContent = "Good Afternoon ";
+        greeting.textContent = "Good Afternoon,";
     } else if (bgCounter === 3) {
         document.body.style.backgroundImage = "url('./assets/images/evening.jpg')";
-        greeting.textContent = "Good Evening ";
+        greeting.textContent = "Good Evening,";
     } else if (bgCounter === 4) {
         document.body.style.backgroundImage = "url('./assets/images/night.jpg')";
-        greeting.textContent = "Good Night ";
+        greeting.textContent = "Good Night,";
     }
 }
 

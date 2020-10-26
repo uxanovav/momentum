@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>momentum</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/owfont-regular.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div id="main-content">
         <date id="date"></date>
         <time id="time"></time>
-        <h1>
-            <span id="greeting">Good afternoon</span>
-            <br>
-            <span id="name" contenteditable="true"></span>
-        </h1>
+        <div class='greeting-header'>
+            <span id="greeting"></span>
+            <span>&nbsp;</span>
+            <div id="name" contenteditable="true"></div>
+        </div>
         <h2>What is your main focus today? </h2>
         <h2 id="task" contenteditable="true"></h2>
-        <div id='change-bg-button'>Change background</div>
         <div class="city" contenteditable="true"></div>
         <i class="weather-icon owf"></i>
         <div class="temperature"></div>
         <div class="weather-description"></div>
+        <div id='change-bg-button'>Change background</div>
         <script src="assets/scripts/index.js"></script>
     </div>
 </body>
