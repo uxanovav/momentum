@@ -139,10 +139,6 @@ chbgButton.addEventListener('click', function (e) {
 });
 
 
-localStorage.setItem('name', '[Enter your name]');
-localStorage.setItem('task', '[Enter your focus]');
-localStorage.setItem('city', 'Ulyanovsk');
-
 
 function setName(e) {
     if (e.type === 'keypress') {
@@ -199,15 +195,24 @@ function setCity(e) {
 
 
 function getCity() {
+    if (localStorage.getItem('city') === null) {
+        localStorage.setItem('city', 'Ulyanovsk');
+    }
     city.textContent = localStorage.getItem('city');
 }
 
 function getName() {
+    if (localStorage.getItem('name') === null) {
+        localStorage.setItem('name', '[Enter your name]');
+    }
     userName.textContent = localStorage.getItem('name');
 }
 
 
 function getTask() {
+    if (localStorage.getItem('task') === null) {
+        localStorage.setItem('task', '[Enter your focus]');
+    }
     task.textContent = localStorage.getItem('task');
 }
 
