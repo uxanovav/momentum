@@ -169,6 +169,8 @@ function setCity(e) {
             getWeather();
             localStorage.setItem('city', e.target.innerText)
             city.blur();
+        } else {
+            localStorage.setItem('city', e.target.innerText)
         }
     }
 }
