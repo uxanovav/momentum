@@ -1,106 +1,156 @@
 #main-content {
-    margin: 10% auto;
-    background: rgb(136, 129, 129, 0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 5% auto;
+  background: rgb(136, 129, 129, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #date {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 br {
-    display: none;
+  display: none;
 }
 
 #time {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 
 body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: 1s ease-in;
-    color: rgb(252, 237, 217)
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 1s ease-in;
+  color: rgb(252, 237, 217);
 }
 
-#change-bg-button {
+#change-qoute-button {
     border-radius: 5px;
     background-color: burlywood;
     color: rgb(46, 44, 44);
     height: 15px;
     padding: 5px;
-    margin-bottom: 10px;
+    margin: 10px;
     cursor: pointer;
     transition: 0.5s linear;
 }
 
+#change-qoute-button:hover {
+    background-color: rgb(223, 16, 16);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+#change-bg-button {
+  border-radius: 5px;
+  background-color: burlywood;
+  color: rgb(46, 44, 44);
+  height: 15px;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.5s linear;
+}
+
 .greeting-header {
-    display: flex;
-    font-size: 3rem;
+  display: flex;
+  font-size: 3rem;
 }
 
 #change-bg-button:hover {
-    background-color: rgb(226, 165, 84);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgb(226, 165, 84);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
-    font-weight: 300;
-    opacity: 0.8;
+  font-weight: 300;
+  opacity: 0.8;
 }
 
 h2 {
-    font-size: 2rem;
-    opacity: 0.8;
+  font-size: 2rem;
+  opacity: 0.8;
 }
 
 .weather-description {
-    margin-bottom: 10px;
-    font-size: 1rem;
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
 
 .city {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .weather-icon {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .temperature {
-    font-size: 1rem;
+  font-size: 1rem;
 }
+
+.weather-flex-items {
+  margin: 5px;
+}
+
+.weather-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-block {
+    display: flex;
+}
+
+.quotes-text {
+    text-align: center;
+    padding: 5px;
+    height: 50px;
+}
+
 @media (max-width: 700px) {
-    body {
-        background-size: auto;
-    }
-    #time {
-        font-size: 3rem;
-        text-align: center;
-    }
-    #date {
-        font-size: 3rem;
-        text-align: center;
-    }
-    .greeting-header{
-        flex-direction: column;
-        align-items: center;
-        font-size: 2rem;
-    }
+  body {
+    background-size: auto;
+  }
 
-    #name {
-        margin-top: auto;
-    }
+  .button-block {
+    flex-direction: column;
+  }
 
-    br {
-        display: block;
-    }
-    h1 {
-        text-align: center;
-    }
-    h2 {
-        text-align: center;
-    }
+  #time {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  #date {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .greeting-header {
+    margin-top: 5%;
+    display: unset;
+    font-size: 2rem;
+  }
+
+  .weather-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #name {
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  br {
+    display: block;
+  }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
 }

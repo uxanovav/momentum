@@ -4,11 +4,17 @@ const greeting = document.getElementById('greeting');
 const userName = document.getElementById('name');
 const task = document.getElementById('task');
 const chbgButton = document.getElementById('change-bg-button');
+const chqtButton = document.getElementById('change-qoute-button');
 let bgCounter = '';
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
+const wind = document.querySelector('.wind-speed');
+const humidity = document.querySelector('.humidity');
+const quotesText = document.querySelector('.quotes-text');
+
+
 
 function showTime() {
     let date = new Date;
@@ -95,44 +101,36 @@ function showTime() {
 
 function changeBgCounter() {
     let date = new Date;
-    if (date.getHours() > 6 && date.getHours() < 12) {
-        bgCounter = 1;
-    } else if (date.getHours() > 12 && date.getHours() < 18) {
-        bgCounter = 2;
-    } else if (date.getHours() > 18 && date.getHours() < 24) {
-        bgCounter = 3;
-    } else if (date.getHours() > 0 && date.getHours() < 6) {
-        bgCounter = 4;
-    }
+    bgCounter = date.getHours();
+    console.log(bgCounter);
     changeBg();
-    setTimeout(changeBgCounter, 1440000);
+    setTimeout(changeBgCounter, 3600000);
 }
 
 function changeBg() {
-    if (bgCounter === 1) {
-        document.body.style.backgroundImage = "url('./assets/images/morning.jpg')";
+    if (bgCounter >= 1 && bgCounter < 6) {
+        document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
+        greeting.textContent = "Good Night,"; 
+    } else if (bgCounter > 6 && bgCounter < 12) {
+        document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
         greeting.textContent = "Good Morning,";
-    } else if (bgCounter === 2) {
-        document.body.style.backgroundImage = "url('./assets/images/noon.jpg')";
+    } else if (bgCounter > 12 && bgCounter < 18) {
+        document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
         greeting.textContent = "Good Afternoon,";
-    } else if (bgCounter === 3) {
-        document.body.style.backgroundImage = "url('./assets/images/evening.jpg')";
+    } else if (bgCounter > 18 && bgCounter <= 24) {
+        document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
         greeting.textContent = "Good Evening,";
-    } else if (bgCounter === 4) {
-        document.body.style.backgroundImage = "url('./assets/images/night.jpg')";
-        greeting.textContent = "Good Night,";
     }
 }
 
-
+chqtButton.addEventListener('click', getQuotes);
 
 chbgButton.addEventListener('click', function (e) {
-    console.log(bgCounter);
-    if (bgCounter < 4) {
+    if (bgCounter < 24) {
         bgCounter++;
         changeBg();
     }
-    if (bgCounter === 4) {
+    if (bgCounter === 24) {
         changeBg();
         bgCounter = 0;
     }
@@ -238,8 +236,17 @@ async function getWeather() {
     const data = await res.json();
     weatherIcon.className = 'weather-icon owf';
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${data.main.temp}°C`;
+    temperature.textContent = `Temp - ${data.main.temp}°C `;
+    wind.textContent = `Wind-speed - ${data.wind.speed} meter/sec `;
+    humidity.textContent = `Humidity - ${data.main.humidity} %`;
     weatherDescription.textContent = data.weather[0].description;
+}
+
+async function getQuotes() {
+    const url = `https://api.chucknorris.io/jokes/random`;
+    const res = await fetch(url);
+    const data = await res.json();
+    quotesText.textContent = `"${data.value}"`;
 }
 
 
@@ -249,3 +256,4 @@ getName();
 getTask();
 getCity();
 getWeather();
+getQuotes();
