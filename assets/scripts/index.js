@@ -107,21 +107,17 @@ function changeBgCounter() {
 function changeBg() {
     if (bgCounter === 1) {
         document.body.style.backgroundImage = "url('./assets/images/morning.jpg')";
-        document.body.style.backgroundSize = "cover";
         document.body.style.color = "rgb(252, 237, 217)";
         greeting.textContent = "Good Morning ";
     } else if (bgCounter === 2) {
         document.body.style.backgroundImage = "url('./assets/images/noon.jpg')";
-        document.body.style.backgroundSize = "cover";
         greeting.textContent = "Good Afternoon ";
         document.body.style.color = "rgb(252, 237, 217)";
     } else if (bgCounter === 3) {
         document.body.style.backgroundImage = "url('./assets/images/evening.jpg')";
-        document.body.style.backgroundSize = "cover";
         greeting.textContent = "Good Evening ";
     } else if (bgCounter === 4) {
         document.body.style.backgroundImage = "url('./assets/images/night.jpg')";
-        document.body.style.backgroundSize = "cover";
         document.body.style.color = "white";
         greeting.textContent = "Good Night ";
     }
