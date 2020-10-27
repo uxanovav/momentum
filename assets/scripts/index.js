@@ -108,16 +108,16 @@ function changeBgCounter() {
 }
 
 function changeBg() {
-    if (bgCounter >= 1 && bgCounter < 6) {
+    if (bgCounter >= 0 && bgCounter < 6) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
         greeting.textContent = "Good Night,"; 
-    } else if (bgCounter > 6 && bgCounter < 12) {
+    } else if (bgCounter >= 6 && bgCounter < 12) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Morning,";
-    } else if (bgCounter > 12 && bgCounter < 18) {
+        greeting.textContent = "Good Morning, ";
+    } else if (bgCounter >= 12 && bgCounter < 18) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Afternoon,";
-    } else if (bgCounter > 18 && bgCounter <= 24) {
+        greeting.textContent = "Good Afternoon," ;
+    } else if (bgCounter >= 18 && bgCounter <= 23) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
         greeting.textContent = "Good Evening,";
     }
@@ -131,8 +131,8 @@ chbgButton.addEventListener('click', function (e) {
         changeBg();
     }
     if (bgCounter === 24) {
-        changeBg();
         bgCounter = 0;
+        changeBg();
     }
 });
 
