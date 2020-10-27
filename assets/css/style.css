@@ -39,6 +39,7 @@ body {
 #change-qoute-button:hover {
     background-color: rgb(223, 16, 16);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02)
   }
 
 #change-bg-button {
@@ -60,6 +61,7 @@ body {
 #change-bg-button:hover {
   background-color: rgb(226, 165, 84);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.02)
 }
 
 h1 {

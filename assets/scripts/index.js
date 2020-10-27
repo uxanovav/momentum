@@ -141,14 +141,14 @@ chbgButton.addEventListener('click', function (e) {
 function setName(e) {
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
-            if (e.target.innerText === '') {
+            if (e.target.innerText.trim() === '') {
                 e.target.innerText = localStorage.getItem('name');
             }
             localStorage.setItem('name', e.target.innerText);
             userName.blur();
         }
     } else {
-        if (e.target.innerText === '') {
+        if (e.target.innerText.trim() === '') {
             e.target.innerText = localStorage.getItem('name');
         }
         localStorage.setItem('name', e.target.innerText);
@@ -158,14 +158,14 @@ function setName(e) {
 function setTask(e) {
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
-            if (e.target.innerText === '') {
+            if (e.target.innerText.trim() === '') {
                 e.target.innerText = localStorage.getItem('task');
             }
             localStorage.setItem('task', e.target.innerText);
             task.blur();
         }
     } else {
-        if (e.target.innerText === '') {
+        if (e.target.innerText.trim() === '') {
             e.target.innerText = localStorage.getItem('task');
         }
         localStorage.setItem('task', e.target.innerText);
@@ -175,7 +175,7 @@ function setTask(e) {
 function setCity(e) {
     if (e.type === 'keypress') {
         if (e.which === 13 || e.keyCode === 13) {
-            if (e.target.innerText === '') {
+            if (e.target.innerText.trim() === '') {
                 e.target.innerText = localStorage.getItem('city');
             }
             localStorage.setItem('city', e.target.innerText)
@@ -183,7 +183,7 @@ function setCity(e) {
             city.blur();
         }
     } else {
-        if (e.target.innerText === '') {
+        if (e.target.innerText.trim() === '') {
             e.target.innerText = localStorage.getItem('city');
         }
         localStorage.setItem('city', e.target.innerText)
