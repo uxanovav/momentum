@@ -35,6 +35,15 @@ function showTime() {
     }
     currentDate.innerHTML = `${day} ${month} ${dayWeek}`;
     time.innerHTML = `${hours}:${minuts}:${seconds}`;
+    if (hours >= 0 && hours < 6) {
+        greeting.textContent = "Good Night,"; 
+    } else if (hours >= 6 && hours < 12) {
+        greeting.textContent = "Good Morning, ";
+    } else if (hours >= 12 && hours < 18) {
+        greeting.textContent = "Good Afternoon," ;
+    } else if (hours >= 18 && hours <= 23) {
+        greeting.textContent = "Good Evening,";
+    }
     setTimeout(showTime, 1000);
 }
 
@@ -49,16 +58,12 @@ function changeBgCounter() {
 function changeBg() {
     if (bgCounter >= 0 && bgCounter < 6) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Night,"; 
     } else if (bgCounter >= 6 && bgCounter < 12) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Morning, ";
     } else if (bgCounter >= 12 && bgCounter < 18) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Afternoon," ;
     } else if (bgCounter >= 18 && bgCounter <= 23) {
         document.body.style.backgroundImage = `url('./assets/images/${bgCounter}.jpg')`;
-        greeting.textContent = "Good Evening,";
     }
 }
 
