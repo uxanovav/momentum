@@ -7,6 +7,7 @@
 }
 
 #date {
+  text-shadow: black 3px 3px 6px;
   font-size: 4rem;
 }
 
@@ -15,6 +16,7 @@ br {
 }
 
 #time {
+  text-shadow: black 3px 3px 6px;
   font-size: 5rem;
 }
 
@@ -26,21 +28,21 @@ body {
 }
 
 #change-qoute-button {
-    border-radius: 5px;
-    background-color: burlywood;
-    color: rgb(46, 44, 44);
-    height: 15px;
-    padding: 5px;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.5s linear;
+  border-radius: 5px;
+  background-color: burlywood;
+  color: rgb(46, 44, 44);
+  height: 15px;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.5s linear;
 }
 
 #change-qoute-button:hover {
-    background-color: rgb(223, 16, 16);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transform: scale(1.02)
-  }
+  background-color: rgb(223, 16, 16);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.02);
+}
 
 #change-bg-button {
   border-radius: 5px;
@@ -54,6 +56,7 @@ body {
 }
 
 .greeting-header {
+  text-shadow: black 3px 3px 6px;
   display: flex;
   font-size: 3rem;
 }
@@ -61,15 +64,17 @@ body {
 #change-bg-button:hover {
   background-color: rgb(226, 165, 84);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transform: scale(1.02)
+  transform: scale(1.02);
 }
 
 h1 {
+  text-shadow: black 3px 3px 6px;
   font-weight: 300;
   opacity: 0.8;
 }
 
 h2 {
+  text-shadow: black 3px 3px 6px;
   font-size: 2rem;
   opacity: 0.8;
 }
@@ -80,18 +85,22 @@ h2 {
 }
 
 .city {
+  text-shadow: black 3px 3px 6px;
   font-size: 2rem;
 }
 
 .weather-icon {
+  text-shadow: black 3px 3px 6px;
   font-size: 2rem;
 }
 
 .temperature {
+  text-shadow: black 3px 3px 6px;
   font-size: 1rem;
 }
 
 .weather-flex-items {
+  text-shadow: black 3px 3px 6px;
   margin: 5px;
 }
 
@@ -101,13 +110,14 @@ h2 {
 }
 
 .button-block {
-    display: flex;
+  display: flex;
 }
 
 .quotes-text {
-    text-align: center;
-    padding: 5px;
-    height: 50px;
+  text-shadow: black 3px 3px 6px;
+  text-align: center;
+  padding: 5px;
+  height: 50px;
 }
 
 @media (max-width: 700px) {
