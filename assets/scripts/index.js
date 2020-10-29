@@ -13,7 +13,7 @@ const city = document.querySelector('.city');
 const wind = document.querySelector('.wind-speed');
 const humidity = document.querySelector('.humidity');
 const quotesText = document.querySelector('.quotes-text');
-
+const head = document.querySelector('head');
 
 
 function showTime() {
